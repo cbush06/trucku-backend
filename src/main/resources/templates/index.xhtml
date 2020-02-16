@@ -1,0 +1,144 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title th:text="#{app.title}"></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto:500&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+        <style type="text/css">
+            body {
+                box-shadow: inset 0px 0px 50px rgba(0, 0, 0, 0.5);
+                font-family: 'Open Sans', sans-serif;
+                color: #fff;
+            }
+            h5, h6 {
+                text-align: center;
+            }
+            h5 {
+                font-size: 40px;
+            }
+            .login-card {
+                background-color: #51A4FB;
+            }
+            .btn {
+                padding: 8px;
+            }
+                .btn.sso {
+                    font-size: 14px;
+                    display: flex;
+                    align-items: center;
+                    font-family: 'Roboto';
+                    font-weight: 500;
+                }
+
+            .form-control.email, .form-control.password {
+                padding-left: 30px;
+            }
+            .email-wrapper, .password-wrapper {
+                position: relative;
+            }
+                .email-wrapper::before {
+                    position: absolute;
+                    top: 8px;
+                    left: 10px;
+                    font-family: 'Material Icons';
+                    content: 'email';
+                }
+                .password-wrapper::before {
+                    position: absolute;
+                    top: 8px;
+                    left: 10px;
+                    font-family: 'Material Icons';
+                    content: 'lock';
+                }
+        </style>
+    </head>
+
+    <body>
+        <div class="d-flex justify-content-center align-items-center h-100 w-100">
+            <div class="card login-card" style="width: 30rem;">
+                <div class="card-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col mb-2">
+                                <img src="images/header2.png" style="width: 100%;" />
+                            </div>
+                        </div>
+                        <div class="row" th:if="${param.error != null}">
+                            <div class="col">
+                                <div class="alert alert-danger" role="alert">
+                                    <span th:text="#{login.error}"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <form method="post" action="/dologin">
+                                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                                    <div class="form-group">
+                                        <div class="email-wrapper text-secondary">
+                                            <input type="text" name="username" class="form-control email" placeholder="E-mail" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="password-wrapper text-secondary">
+                                            <input type="password" name="password" class="form-control password" placeholder="Password" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-success btn-block font-weight-bold">
+                                            SIGN IN
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <h6>Or</h6>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col">
+                                <a href="/oauth2/authorization/google" class="btn btn-light btn-block sso google">
+                                    <img src="images/g-logo.png" style="width: 18px; height: 18px; margin-right: 24px;" /> Sign in with Google
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col">
+                                <a href="/oauth2/authorization/github" class="btn btn-light btn-block sso github">
+                                    <img src="images/github-logo.png" style="width: 18px; height: 18px; margin-right: 24px;" /> Sign in with Github
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col">
+                                <a href="/oauth2/authorization/facebook" class="btn btn-light btn-block sso facebook">
+                                    <img src="images/facebook-logo.png" style="width: 18px; height: 18px; margin-right: 24px;" /> Sign in with Facebook
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--
+        <h1>Login!</h1>
+        <div class="container unauthenticated">
+            <p>With Username/Password: <a href="/login-form">Login form</a></p>
+            <p>With GitHub: <a href="/oauth2/authorization/github">click here</a></p>
+            <p>With Google: <a href="/oauth2/authorization/google">click here</a></p>
+        </div>
+        <div class="container authenticated" style="display:none">Logged in as: <span id="user"></span></div>
+        -->
+    </body>
+</html>

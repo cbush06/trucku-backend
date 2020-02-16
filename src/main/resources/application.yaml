@@ -1,0 +1,45 @@
+logging:
+    level:
+        root: INFO
+        org:
+            hibernate:
+                SQL: DEBUG
+                type:
+                    descriptor:
+                        sql: TRACE
+spring:
+    datasource:
+        continue-on-error: true
+        initialization-mode: always
+        initialize: true
+        password: postgres
+        url: jdbc:postgresql://localhost:5432/trucku
+        username: postgres
+    jpa:
+        hibernate:
+            ddl-auto: none
+            show-sql: true
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQLDialect
+                format_sql: true
+        show-sql: true
+    security:
+        oauth2:
+            client:
+                registration:
+                    github:
+                        clientId: 623511870f1f23e519d3
+                    google:
+                        clientId: 519793198434-kumpfc2b9al4pu1urgrotp1do914d4cq.apps.googleusercontent.com
+                    facebook:
+                        clientId: 972962853105089
+            resource:
+                userInfoUri: http://localhost:8081/auth/user/me
+
+frontendUrl: http://localhost:8081
+cors:
+    allowedOrigins: 
+    allowedMethods: GET, POST, PUT, DELETE
+    allowedHeaders: X-CSRF-TOKEN, JSESSIONID
+    allowCredentials: true
