@@ -8,13 +8,6 @@ logging:
                     descriptor:
                         sql: TRACE
 spring:
-    datasource:
-        continue-on-error: true
-        initialization-mode: always
-        initialize: true
-        password: postgres
-        url: jdbc:postgresql://localhost:5432/trucku
-        username: postgres
     jpa:
         hibernate:
             ddl-auto: none
@@ -36,6 +29,8 @@ spring:
                         clientId: 972962853105089
             resource:
                 userInfoUri: http://localhost:8081/auth/user/me
+    session:
+        store-type: redis
 
 frontendUrl: http://localhost:8081
 cors:

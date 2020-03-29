@@ -1,0 +1,11 @@
+spring:
+    datasource:
+        continue-on-error: true
+        initialization-mode: always
+        initialize: true
+        password: postgres
+        url: jdbc:postgresql://dockerbox:5432/trucku
+        username: postgres
+    redis:
+        host: dockerbox
+        port: 6379
