@@ -1,0 +1,17 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "type": "java",
+            "name": "Debug (Launch)",
+            "request": "launch",
+            "mainClass": "com.trucku.restapi.AppApplication",
+            "projectName": "restapi",
+            "args": "--spring.profiles.active=dev --spring.security.oauth2.client.registration.facebook.clientSecret=207da5709a46a109c09a9949538d10e3 --spring.security.oauth2.client.registration.google.clientSecret=dy-0DHg18Q7oogjNNUbPtVbV --spring.security.oauth2.client.registration.github.clientSecret=689eb7e3a0640e85781487d6301b0c245bf92e63"
+        }
+    ]
+}
