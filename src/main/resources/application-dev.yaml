@@ -6,6 +6,3 @@ spring:
         password: postgres
         url: jdbc:postgresql://dockerbox:5432/trucku
         username: postgres
-    redis:
-        host: dockerbox
-        port: 6379

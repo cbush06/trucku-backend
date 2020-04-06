@@ -29,8 +29,6 @@ spring:
                         clientId: 972962853105089
             resource:
                 userInfoUri: http://localhost:8081/auth/user/me
-    session:
-        store-type: redis
 
 frontendUrl: http://localhost:8081
 cors:
