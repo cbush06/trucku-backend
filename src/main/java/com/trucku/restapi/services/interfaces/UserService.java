@@ -7,5 +7,6 @@ import com.trucku.restapi.models.User;
 public interface UserService {
 
     Optional<User> findUserByEmail( String email );
-    
+		
+		Optional<User> saveUser(User user);
 }
