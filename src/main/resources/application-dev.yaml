@@ -4,5 +4,5 @@ spring:
         initialization-mode: always
         initialize: true
         password: postgres
-        url: jdbc:postgresql://104.248.238.158:5432/trucku
+        url: jdbc:postgresql://dockerbox:5432/trucku
         username: postgres
