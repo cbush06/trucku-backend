@@ -1,6 +1,5 @@
 package com.trucku.restapi.restcontrollers;
 
-import java.security.Principal;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,20 +7,18 @@ import javax.servlet.http.HttpServletRequest;
 import com.trucku.restapi.models.User;
 import com.trucku.restapi.services.interfaces.UserService;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.HttpClientErrorException.BadRequest;
 
 import lombok.AllArgsConstructor;
 
 @RestController
-@AllArgsConstructor(onConstructor = { @Autowired })
+@AllArgsConstructor(onConstructor_ = { @Autowired })
 public class UserController {
 
 	private final UserService userService;

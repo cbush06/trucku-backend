@@ -24,9 +24,15 @@ spring:
                     github:
                         clientId: 623511870f1f23e519d3
                     google:
-                        clientId: 594432977686-mifjjvjnafgg3o66qkb9j78nm12b03dn.apps.googleusercontent.com
+                        clientId: 519793198434-kumpfc2b9al4pu1urgrotp1do914d4cq.apps.googleusercontent.com
                     facebook:
                         clientId: 972962853105089
+                    # github:
+                    #     clientId: 623511870f1f23e519d3
+                    # google:
+                    #     clientId: 594432977686-mifjjvjnafgg3o66qkb9j78nm12b03dn.apps.googleusercontent.com
+                    # facebook:
+                    #     clientId: 972962853105089
             resource:
                 userInfoUri: http://localhost:8081/auth/user/me
 frontendUrl: http://localhost:8081

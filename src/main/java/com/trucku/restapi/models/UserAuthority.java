@@ -19,7 +19,7 @@ import lombok.Data;
 @IdClass(UserEmailAuthority.class)
 @Table(name = "USERS_AUTHORITIES")
 @Data
-public class UserAuthority implements GrantedAuthority, Serializable  {
+public class UserAuthority implements GrantedAuthority  {
 
     private static final long serialVersionUID = -3596535920083143726L;
 
