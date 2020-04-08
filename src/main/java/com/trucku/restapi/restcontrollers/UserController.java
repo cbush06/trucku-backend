@@ -34,6 +34,8 @@ public class UserController {
 		Optional<User> meUserOpt = userService.findUserByEmail(user.getEmail());
 		if(!meUserOpt.isEmpty()) {
 			User meUser = meUserOpt.get();
+			meUser.setFirstName(user.getFirstName());
+			meUser.setLastName(user.getLastName());
 			Optional<User> updatedUser = userService.saveUser(meUser);
 			return ResponseEntity.ok( updatedUser.get());
 		}
