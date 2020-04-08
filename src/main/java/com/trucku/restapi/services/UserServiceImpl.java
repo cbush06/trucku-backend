@@ -21,5 +21,10 @@ public class UserServiceImpl implements UserService {
     public Optional<User> findUserByEmail(String email) {
         return userRepo.findUserByEmail(email);
     }
+
+	@Override
+	public Optional<User> saveUser(User user) {
+		return Optional.ofNullable(userRepo.save(user));
+	}
     
 }

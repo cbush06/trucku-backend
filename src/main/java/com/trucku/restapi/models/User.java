@@ -16,6 +16,8 @@ import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.oauth2.core.oidc.OidcIdToken;
 import org.springframework.security.oauth2.core.oidc.OidcUserInfo;
@@ -89,15 +91,19 @@ public class User implements UserDetails, OidcUser, Serializable {
     //////////////////////////////////////////////
 
     @Transient
+    @JsonIgnore
     private Map<String, Object> attributes = new HashMap<>();
 
     @Transient
+    @JsonIgnore
     private Map<String, Object> claims = new HashMap<>();
 
     @Transient
+    @JsonIgnore
     private OidcUserInfo userInfo;
 
     @Transient
+    @JsonIgnore
     private OidcIdToken idToken;
 
     @Override
