@@ -25,7 +25,7 @@ public class UserController {
 
     @GetMapping("/api/user")
     public User user(Authentication auth) {
-		return (User) auth.getPrincipal();
+		return (User) userService.findUserByEmail(auth.getName()).orElse(null);
 	}
 		
 	@RequestMapping("/api/user/me")
