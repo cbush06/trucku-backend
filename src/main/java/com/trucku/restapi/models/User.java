@@ -17,6 +17,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.oauth2.core.oidc.OidcIdToken;
@@ -28,7 +29,11 @@ import lombok.Data;
 @Entity
 @Table(name = "USERS")
 @Data
-public class User implements UserDetails, OidcUser, Serializable {
+@JsonIgnoreProperties({ "birthdate", "emailVerified", "familyName", "fullName", "gender", "givenName", "locale", "nickName", "phoneNumber", "phoneNumberVerified", 
+                        "picture", "profile", "preferredUsername", "updatedAt", "username", "website", "zoneInfo", "claims", "userInfo", "idToken", "attributes", 
+                        "name", "issuer", "subject", "audience", "expiresAt", "issuedAt", "authenticatedAt", "nonce", "authenticationContextClass", "authenticationMethods", 
+                        "authorizedParty", "accessTokenHash", "authorizationCodeHash" })
+public class User implements UserDetails, OidcUser {
 
     private static final long serialVersionUID = 7228329796427986022L;
 
